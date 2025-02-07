@@ -24,6 +24,10 @@ let playTimeLeft;
 let playTimerId = null;
 const playTime = 5 * 60; // 5 minutes in seconds
 
+const currentTaskDisplay = document.getElementById('current-task');
+
+const newTaskButton = document.getElementById('new-task');
+
 function updateDisplay() {
     const minutes = Math.floor(timeLeft / 60);
     const seconds = timeLeft % 60;
@@ -75,6 +79,7 @@ function resetTimer() {
     modeText.textContent = 'Work Time';
     updateDisplay();
     startButton.disabled = false;
+    askForTask();
 }
 
 function updatePlayDisplay() {
@@ -121,11 +126,19 @@ function resetPlayTimer() {
     playStartButton.disabled = false;
 }
 
+function askForTask() {
+    const task = prompt('What are you working on?');
+    if (task) {
+        currentTaskDisplay.textContent = task;
+    }
+}
+
 // Flip functionality
 playModeButton.addEventListener('click', () => {
     flipContainer.classList.add('flipped');
     pauseTimer();
     resetPlayTimer();
+    currentTaskDisplay.textContent = 'Time to play!';
 });
 
 workModeButton.addEventListener('click', () => {
@@ -143,6 +156,9 @@ resetButton.addEventListener('click', resetTimer);
 playStartButton.addEventListener('click', startPlayTimer);
 playPauseButton.addEventListener('click', pausePlayTimer);
 playResetButton.addEventListener('click', resetPlayTimer);
+
+// Add new task event listener
+newTaskButton.addEventListener('click', askForTask);
 
 // Initialize both displays
 resetTimer();
