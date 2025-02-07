@@ -1,0 +1,203 @@
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    text-align: center;
+    background-color: #2d2d2d;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+h1 {
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+.timer {
+    font-size: 6rem;
+    margin: 2rem 0;
+    font-weight: 600;
+    color: #00ff9d;
+    text-shadow: 0 0 20px rgba(0, 255, 157, 0.3);
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.controls button {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    border: 2px solid #00ff9d;
+    border-radius: 50px;
+    min-width: 100px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.controls button:hover {
+    background-color: #00ff9d;
+    color: #1a1a1a;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 255, 157, 0.4);
+}
+
+.controls button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.mode {
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#mode-text {
+    position: relative;
+}
+
+#mode-text::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #00ff9d;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+#mode-text:hover::after {
+    transform: scaleX(1);
+}
+
+.flip-container {
+    perspective: 1000px;
+    margin: 20px;
+    width: 100%;
+    max-width: 500px;
+    height: 600px;
+}
+
+.flipper {
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.front, .back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.front {
+    z-index: 2;
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+.front .container,
+.back .container {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flip-container.flipped .flipper {
+    transform: rotateY(180deg);
+}
+
+.play-container {
+    background-color: #2d1a4a;
+    background-image: linear-gradient(45deg, #2d1a4a 0%, #4a1a3a 100%);
+}
+
+.play-container .timer {
+    color: #ff00ff;
+    text-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+}
+
+.play-container .controls button {
+    border-color: #ff00ff;
+}
+
+.play-container .controls button:hover {
+    background-color: #ff00ff;
+    color: #1a1a1a;
+    box-shadow: 0 5px 15px rgba(255, 0, 255, 0.4);
+}
+
+.play-container #mode-text::after {
+    background-color: #ff00ff;
+}
+
+.flip-button {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    border: 2px solid currentColor;
+    border-radius: 50px;
+    margin-top: 2rem;
+    min-width: 150px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.flip-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+.front .flip-button {
+    color: #00ff9d;
+}
+
+.back .flip-button {
+    color: #ff00ff;
+} 

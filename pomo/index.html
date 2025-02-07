@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="flip-container">
+        <div class="flipper">
+            <div class="front">
+                <div class="container">
+                    <h1>Pomodoro Timer</h1>
+                    <div class="timer">
+                        <span id="minutes">25</span>:<span id="seconds">00</span>
+                    </div>
+                    <div class="controls">
+                        <button id="start">Start</button>
+                        <button id="pause">Pause</button>
+                        <button id="reset">Reset</button>
+                    </div>
+                    <div class="mode">
+                        <span id="mode-text">Work Time</span>
+                    </div>
+                    <button id="play-mode" class="flip-button">Play Time!</button>
+                </div>
+            </div>
+            <div class="back">
+                <div class="container play-container">
+                    <h1>Play Time!</h1>
+                    <div class="timer">
+                        <span id="play-minutes">5</span>:<span id="play-seconds">00</span>
+                    </div>
+                    <div class="controls">
+                        <button id="play-start">Start</button>
+                        <button id="play-pause">Pause</button>
+                        <button id="play-reset">Reset</button>
+                    </div>
+                    <div class="mode">
+                        <span id="play-mode-text">Break Time</span>
+                    </div>
+                    <button id="work-mode" class="flip-button">Back to Work</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
